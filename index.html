@@ -8,8 +8,26 @@
           </head>
           <body> 
             <a-scene>
+
+                <a-assets>
+                    <img id="grass-base" src="assets\Stylized_Grass_001_basecolor.jpg">
+                    <img id="grass-ambient-occlusion" src="assets\Stylized_Grass_001_ambientOcclusion.jpg">
+                    <img id="grass-normal" src="assets\Stylized_Grass_001_normal.jpg">
+                    <img id="sphericaltreeleaves-base" src="assets\Stylized_Leaves_001_basecolor.jpg">
+                    <img id="sphericaltreeleaves-ambient-occlusion" src="assets\Stylized_Leaves_001_ambientOcclu sion.jpg">
+                    <img id="sphericaltreeleaves-normal" src="assets\Stylized_Leaves_001_normal.jpg">
+                    <img id="conicaltreeleaves-base" src="assets\Hedge_001_BaseColor.jpg">
+                    <img id="conicaltreeleaves-ambient-occlusion" src="assets\Hedge_001_AmbientOcclu sion.jpg">
+                    <img id="conicaltreeleaves-normal" src="assets\Hedge_001_Normal.jpg">
+                </a-assets>
+
                  <a-plane
-                  color="forestgreen" 
+                  material= "src: #grass-base; 
+                  repeat: 500 500; 
+                  ambientOcclusionMap: #grass-ambient-occlusion;
+                   ambientOcclusionTextureRepeat: 500 500;
+                    normalMap: #grass-normal; 
+                    normalTextureRepeat: 500 500" 
                   position="0 0 0" 
                   rotation="-90 0 0" 
                   width="500" 
@@ -122,7 +140,14 @@ position="4 1 -2"
 </a-cylinder>
 <a-mixin
 id="conicaltreeleaves"
-color="green"
+material = "src: #sphericaltreeleaves-base;
+ repeat: 8 8;
+  ambientOcclusionMap:
+   #sphericaltreeleaves-ambient-  
+     occlusion; 
+     ambientOcclusionTextureRepeat: 8 8;
+      normalMap: #sphericaltreeleaves-normal; 
+      normalTextureRepeat: 8 8;"
 geometry="radius-bottom:1; height:3"
 >
 </a-mixin>
@@ -138,8 +163,12 @@ position="4 2.25 -2"
 </a-cone>
 <a-mixin
 id="sphericaltreeleaves"
-color="green"
-geometry="radius:1"
+material = "src: #conicaltreeleaves-base; 
+repeat: 2 2;
+ ambientOcclusionMap:#conicaltreeleaves-ambient-occlusion;
+     ambientOcclusionTextureRepeat: 2 2;
+      normalMap: #conicaltreeleaves-normal; 
+      normalTextureRepeat: 2 2;"
 >
 </a-mixin>
 <a-sphere
